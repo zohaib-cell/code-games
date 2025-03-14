@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="ZOHAIB | Next-Gen Gaming - Experience the future of gaming with cutting-edge tech, real-time analytics, and ultra-low latency gameplay." />
+  <meta property="og:title" content="ZOHAIB | Next-Gen Gaming" />
+  <meta property="og:description" content="Experience the future of gaming with cutting-edge tech, real-time analytics, and ultra-low latency gameplay." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.yourdomain.com" />
+  <meta property="og:image" content="https://www.yourdomain.com/path-to-your-og-image.jpg" />
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>ZOHAIB | Next-Gen Gaming</title>
+  <style>
+    /* === RESET & VARIABLES === */
+    :root {
+      --bg-primary: #0f1423;
+      --bg-secondary: #1a1f35;
+      --neon-primary: #00f7ff;
+      --neon-secondary: #ff00e6;
+      --neon-accent: #7d00ff;
+      --text-primary: #ffffff;
+      --text-secondary: #acb2c1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* === SKIP LINK FOR ACCESSIBILITY === */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--neon-primary);
+      color: var(--bg-primary);
+      padding: 8px 16px;
+      z-index: 1002;
+      transition: top 0.3s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      background: linear-gradient(to right, var(--neon-primary), var(--neon-secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--neon-primary), var(--neon-secondary));
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--neon-primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--neon-secondary);
+      text-shadow: 0 0 8px var(--neon-primary);
+    }
+
+    /* === LAYOUT & CONTAINERS === */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* === NAVIGATION === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background-color: rgba(15, 20, 35, 0.8);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .header-scrolled {
+      padding: 0.5rem 0;
+      background-color: rgba(15, 20, 35, 0.95);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--neon-primary);
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-bottom: 0.3rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--neon-primary), var(--neon-secondary));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      background-color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(125, 0, 255, 0.1) 0%, rgba(15, 20, 35, 0) 70%);
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--neon-primary);
+      box-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary);
+      animation: float 15s infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      25% { transform: translateY(-100px) translateX(50px); }
+      50% { transform: translateY(0) translateX(100px); }
+      75% { transform: translateY(100px) translateX(50px); }
+    }
+
+    .hero-content {
+      width: 50%;
+      z-index: 1;
+    }
+
+    .hero-image {
+      width: 45%;
+      z-index: 1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      filter: drop-shadow(0 0 15px rgba(0, 247, 255, 0.5));
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* === FEATURES SECTION === */
+    .features {
+      background-color: var(--bg-secondary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features::after {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--neon-accent) 0%, rgba(125, 0, 255, 0) 70%);
+      filter: blur(50px);
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .feature-card {
+      flex: 1 1 300px;
+      background: rgba(26, 31, 53, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 247, 255, 0.1) 0%, rgba(125, 0, 255, 0.1) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(0, 247, 255, 0.3);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--neon-primary);
+    }
+
+    /* === CTA SECTION === */
+    .cta {
+      text-align: center;
+      padding: 8rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: linear-gradient(0deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      animation: rotate 30s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      background: rgba(26, 31, 53, 0.5);
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 247, 255, 0.1);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--neon-primary), var(--neon-secondary));
+      color: var(--bg-primary);
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-secondary), var(--neon-primary));
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 247, 255, 0.7);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover::before {
+      width: 100%;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--neon-primary);
+      border: 2px solid var(--neon-primary);
+      margin-left: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(0, 247, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+      transform: translateY(-3px);
+    }
+
+    /* === BACK TO TOP BUTTON === */
+    #backToTop {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: linear-gradient(90deg, var(--neon-primary), var(--neon-secondary));
+      color: var(--bg-primary);
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1001;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background-color: var(--bg-secondary);
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0, 247, 255, 0), var(--neon-primary), rgba(0, 247, 255, 0));
+      opacity: 0.5;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--neon-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 247, 255, 0.1);
+      color: var(--neon-primary);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--neon-primary);
+      color: var(--bg-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 247, 255, 0.5);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* === RESPONSIVE STYLES === */
+    @media screen and (max-width: 992px) {
+      h1 { font-size: 3rem; }
+      h2 { font-size: 2rem; }
+      .hero-content, .hero-image {
+        width: 100%;
+        text-align: center;
+      }
+      .hero-image {
+        margin-top: 2rem;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero { height: auto; padding: 120px 0 5rem; }
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .nav-links {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        background-color: var(--bg-secondary);
+        width: 100%;
+        text-align: center;
+        padding: 2rem;
+        gap: 1.5rem;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .nav-active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .hamburger { display: block; }
+      .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+      .toggle .line2 { opacity: 0; }
+      .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+    }
+
+    @media screen and (max-width: 576px) {
+      .btn { display: block; width: 100%; margin-bottom: 1rem; }
+      .btn-secondary { margin-left: 0; }
+      section { padding: 3rem 0; }
+      .cta { padding: 5rem 0; }
+      .cta-content { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#mainContent" class="skip-link">Skip to Content</a>
+
+  <!-- Header & Navigation -->
+  <header id="header">
+    <div class="container">
+      <nav role="navigation" aria-label="Main Navigation">
+        <div class="logo">ZOHAIB</div>
+        <ul class="nav-links">
+          <li><a href="#home" class="scroll-link">Home</a></li>
+          <li><a href="#features" class="scroll-link">Features</a></li>
+          <li><a href="#cta" class="scroll-link">Join Us</a></li>
+          <li><a href="#about" class="scroll-link">About</a></li>
+          <li><a href="#contact" class="scroll-link">Contact</a></li>
+        </ul>
+        <!-- Hamburger menu for mobile with aria attributes -->
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div id="particles"></div>
+      <div class="container flex-container">
+        <div class="hero-content">
+          <h1>The Future of Gaming</h1>
+          <p>Experience next-level immersion with cutting-edge technology, stunning graphics, and revolutionary gameplay mechanics that will transform how you play.</p>
+          <div class="hero-buttons">
+            <a href="#cta" class="btn btn-primary scroll-link">Get Started</a>
+            <a href="#features" class="btn btn-secondary scroll-link">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="/api/placeholder/600/400" alt="ZOHAIB Gaming Experience" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Cutting-Edge Features</h2>
+          <p>Discover what makes ZOHAIB the most advanced gaming platform.</p>
+        </div>
+        <div class="flex-container">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Real-Time Analytics</h3>
+            <p>Track your performance with advanced metrics and deep insights into your gameplay strategies.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Ultra-Low Latency</h3>
+            <p>Experience gameplay with virtually zero delay, giving you the competitive edge when it matters most.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3>Cross-Platform Sync</h3>
+            <p>Seamlessly switch between devices while maintaining your progress and preferences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Join the Revolution</h2>
+          <p>Be part of the next generation of gaming. Sign up now to get early access and exclusive benefits.</p>
+          <a href="#" class="btn btn-primary">Sign Up Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>ZOHAIB</h3>
+          <p>Redefining the future of gaming with cutting-edge technology and immersive experiences.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter">T</a>
+            <a href="#" aria-label="Facebook">F</a>
+            <a href="#" aria-label="Instagram">I</a>
+            <a href="#" aria-label="Discord">D</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#cta">Join Us</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Licenses</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Have questions? Reach out to our support team.</p>
+          <a href="mailto:support@zohaib-gaming.com">support@zohaib-gaming.com</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 ZOHAIB Gaming. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to Top">↑ Top</button>
+
+  <!-- JavaScript -->
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        // Close mobile menu if open
+        if (document.querySelector('.nav-links').classList.contains('nav-active')) {
+          toggleNav();
+        }
+      });
+    });
+
+    // Mobile menu toggle with ARIA update
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    function toggleNav() {
+      navLinks.classList.toggle('nav-active');
+      hamburger.classList.toggle('toggle');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+    }
+
+    hamburger.addEventListener('click', toggleNav);
+
+    // Debounce function for performance on scroll events
+    function debounce(func, wait = 10, immediate = true) {
+      let timeout;
+      return function () {
+        const context = this, args = arguments;
+        const later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+
+    // Header scroll effect & Back to Top visibility
+    const header = document.querySelector('header');
+    const backToTop = document.getElementById('backToTop');
+
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+      // Show or hide Back to Top button
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    }
+
+    window.addEventListener('scroll', debounce(handleScroll));
+
+    // Back to Top button click event
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Create animated particles in the hero section
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      // Create 25 particles
+      for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        // Random size between 3px and 8px
+        const size = Math.random() * 5 + 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+
+        // Random position
+        const xPos = Math.random() * 100;
+        const yPos = Math.random() * 100;
+        particle.style.left = `${xPos}%`;
+        particle.style.top = `${yPos}%`;
+
+        // Random animation delay and duration
+        const animDuration = Math.random() * 10 + 10;
+        const animDelay = Math.random() * 5;
+        particle.style.animationDuration = `${animDuration}s`;
+        particle.style.animationDelay = `${animDelay}s`;
+
+        // Random color variation between neon primary and secondary
+        const colorRand = Math.random();
+        if (colorRand < 0.5) {
+          particle.style.backgroundColor = '#00f7ff';
+          particle.style.boxShadow = '0 0 10px #00f7ff, 0 0 20px #00f7ff';
+        } else {
+          particle.style.backgroundColor = '#ff00e6';
+          particle.style.boxShadow = '0 0 10px #ff00e6, 0 0 20px #ff00e6';
+        }
+
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialize particles and feature card animations once DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+
+      // Initialize Intersection Observer for feature cards
+      const featureCards = document.querySelectorAll('.feature-card');
+      const options = { threshold: 0.1 };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, options);
+
+      featureCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+      });
+    });
+
+    // Button pulse animation for CTA
+    const ctaButton = document.querySelector('.cta .btn-primary');
+
+    function pulseAnimation() {
+      ctaButton.classList.add('pulse');
+      setTimeout(() => { ctaButton.classList.remove('pulse'); }, 1000);
+    }
+
+    // Add CSS for pulse animation dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes buttonPulse {
+        0% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(0, 247, 255, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 247, 255, 0); }
+      }
+      .pulse { animation: buttonPulse 1.5s ease-out; }
+    `;
+    document.head.appendChild(style);
+
+    // Trigger pulse animation at intervals
+    setInterval(pulseAnimation, 3000);
+  </script>
+</body>
+</html>
